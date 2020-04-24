@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Spash extends AppCompatActivity {
-    private int waktu_loading=4000;
+    private int waktu_loading=1000;
 
     //4000=4 detik
 
