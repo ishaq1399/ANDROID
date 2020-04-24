@@ -21,7 +21,7 @@ public class Spash extends AppCompatActivity {
             @Override
             public void run() {
 
-                //setelah loading maka akan langsung berpindah ke home activity
+                //setelah loading maka akan langsung berpindah ke login activity
                 Intent login=new Intent(Spash.this, LoginActivity.class);
                 startActivity(login);
                 finish();
