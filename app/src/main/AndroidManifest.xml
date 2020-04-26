@@ -31,7 +31,7 @@
         <activity
             android:name=".MainActivity"
             android:label="Home Screen"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoAction" />
     </application>
 
 </manifest>
