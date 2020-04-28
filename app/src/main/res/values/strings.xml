@@ -7,5 +7,6 @@
     <string name="username">Username</string>
     <string name="register">Register</string>
     <string name="back_to_login">Back to Login</string>
+    <string name="Nilai_MP">NILAI SETIAP MATA PELAJARAN</string>
     <string name="todo">TODO</string>
 </resources>
