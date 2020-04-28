@@ -31,6 +31,32 @@
             android:name=".MainActivity"
             android:label="Home Screen"
             android:theme="@style/AppTheme.NoAction" />
+
+        <activity
+            android:name=".MaPelActivity"
+            android:label="Mata Pelajaran"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MateriActivity"
+            android:label="Materi"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".KelasActivity"
+            android:label="Kelas"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AccountActivity"
+            android:label="Account"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SettingActivity"
+            android:label="Setting"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".NilaiActivity"
+            android:label="Nilai"
+            android:theme="@style/AppTheme" />
     </application>
+
 
 </manifest>
