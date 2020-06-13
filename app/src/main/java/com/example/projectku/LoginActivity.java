@@ -184,7 +184,7 @@ public class LoginActivity extends AppCompatActivity {
         final String mEmail = email;
         final String mPassword = password;
 
-        String url = "http://192.168.43.253/WebCI_E-LESSON/index.php/LoginApi";
+        String url = ApiEndpoints.LOGIN;
 
         StringRequest loginRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
