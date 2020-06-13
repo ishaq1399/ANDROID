@@ -1,9 +1,20 @@
 package com.example.projectku;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
@@ -11,6 +22,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,6 +45,14 @@ public class LoginActivity extends AppCompatActivity {
     //Declaration SqliteHelper
     SqliteHelper sqliteHelper;
 
+    RequestQueue requestQueue;
+    ProgressDialog progressDialog;
+
+    SessionManager sessionManager;
+
+    boolean statusLogin = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,37 +61,43 @@ public class LoginActivity extends AppCompatActivity {
         initCreateAccountTextView();
         initViews();
 
+        if (sessionManager.isLogin()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         //set click event of login button
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //Check user input is correct or not
-                if (validate()) {
+//                if (validate()) {
 
-                    //Get values from EditText fields
-                    String Email = editTextEmail.getText().toString();
-                    String Password = editTextPassword.getText().toString();
+                //Get values from EditText fields
+                String Email = editTextEmail.getText().toString().trim();
+                String Password = editTextPassword.getText().toString().trim();
 
-                    //Authenticate user
-                    User currentUser = sqliteHelper.Authenticate(new User(null, null, Email, Password));
+                loginProcss(Email, Password);
 
-                    //Check Authentication is successful or not
-                    if (currentUser != null) {
-                        Snackbar.make(buttonLogin, "Successfully Logged in!", Snackbar.LENGTH_LONG).show();
+                //Authenticate user
+//                    User currentUser = sqliteHelper.Authenticate(new User(null, null, Email, Password));
 
-                        //User Logged in Successfully Launch You home screen activity
-                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                //Check Authentication is successful or not
+//                    if (statusLogin) {
+//                        Snackbar.make(buttonLogin, "Successfully Logged in!", Snackbar.LENGTH_LONG).show();
 
-                    } else {
+                //User Logged in Successfully Launch You home screen activity
 
-                        //User Logged in Failed
-                        Snackbar.make(buttonLogin, "Failed to log in , please try again", Snackbar.LENGTH_LONG).show();
 
-                    }
-                }
+//                    } else {
+//
+//                        //User Logged in Failed
+//                        Snackbar.make(buttonLogin, "Failed to log in , please try again", Snackbar.LENGTH_LONG).show();
+//
+//                    }
+//                }
             }
         });
 
@@ -94,7 +125,9 @@ public class LoginActivity extends AppCompatActivity {
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
-
+        requestQueue = Volley.newRequestQueue(this);
+        progressDialog = new ProgressDialog(this);
+        sessionManager = new SessionManager(this);
     }
 
     //This method is for handling fromHtml method deprecation
@@ -141,5 +174,65 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    private void loginProcss(String email, String password) {
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        final String mEmail = email;
+        final String mPassword = password;
+
+        String url = "http://192.168.43.253/WebCI_E-LESSON/index.php/LoginApi";
+
+        StringRequest loginRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    String status = jsonObject.getString("status");
+                    String message = jsonObject.getString("message");
+                    JSONObject user = jsonObject.getJSONObject("user");
+
+                    String id = user.getString("id");
+                    String nama = user.getString("nama");
+
+                    if (status.equals("true")) {
+                        statusLogin = true;
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+
+                        sessionManager.createSession(nama, id);
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        statusLogin = false;
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", mEmail);
+                params.put("password", mPassword);
+                return params;
+            }
+        };
+
+        requestQueue.add(loginRequest);
     }
 }

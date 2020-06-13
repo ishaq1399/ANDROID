@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ImageView Mapel= findViewById(R.id.Mapel);
+        ImageView Mapel = findViewById(R.id.Mapel);
         Mapel.setOnClickListener(new View.OnClickListener() {
 
                                      @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                                  }
         );
 
-        ImageView Materi= findViewById(R.id.Materi);
+        ImageView Materi = findViewById(R.id.Materi);
         Materi.setOnClickListener(new View.OnClickListener() {
 
                                       @Override
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                                   }
         );
 
-        ImageView kelas= findViewById(R.id.kelas);
+        ImageView kelas = findViewById(R.id.kelas);
         kelas.setOnClickListener(new View.OnClickListener() {
 
                                      @Override
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                                      }
                                  }
         );
-        ImageView Account= findViewById(R.id.Account);
+        ImageView Account = findViewById(R.id.Account);
         Account.setOnClickListener(new View.OnClickListener() {
 
                                        @Override
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                                        }
                                    }
         );
-        ImageView Setting= findViewById(R.id.Setting);
+        ImageView Setting = findViewById(R.id.Setting);
         Setting.setOnClickListener(new View.OnClickListener() {
 
                                        @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                        }
                                    }
         );
-        ImageView Nilai= findViewById(R.id.Nilai);
+        ImageView Nilai = findViewById(R.id.Nilai);
         Nilai.setOnClickListener(new View.OnClickListener() {
 
                                      @Override
