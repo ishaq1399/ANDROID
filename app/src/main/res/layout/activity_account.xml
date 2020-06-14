@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="NIS"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fotoUser" />
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="NAMA"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNis" />
@@ -57,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Jenis Kelamin"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNama" />
@@ -75,6 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Tempat Lahir"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtJenisKelamin" />
@@ -93,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Tanggal Lahir"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTempatLahir" />
@@ -111,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="AGAMA"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTanggalLahir" />
@@ -129,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Alamat"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAgama" />
@@ -147,6 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Tahun Masuk"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAlamat" />
