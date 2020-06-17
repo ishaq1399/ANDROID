@@ -46,10 +46,10 @@
             android:name=".MaPelActivity"
             android:label="Mata Pelajaran"
             android:theme="@style/AppTheme" />
-<!--        <activity-->
-<!--            android:name=".MateriActivity"-->
-<!--            android:label="Materi"-->
-<!--            android:theme="@style/AppTheme" />-->
+        <activity
+            android:name=".MateriActivity"
+            android:label="Materi"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".KelasActivity"
             android:label="Kelas"
