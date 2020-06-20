@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.MateriViewHolder>  {
+public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.MateriViewHolder> {
     private List<MateriModel> listMateriModel = new ArrayList<>();
 
     public MateriAdapter(List<MateriModel> listMateriModel) {

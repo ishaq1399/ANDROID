@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MateriDetailActivity"
+            android:parentActivityName=".MateriActivity"></activity>
         <activity
             android:name=".AccountActivity"
             android:label="Account"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SettingActivity"
             android:label="Setting"
@@ -43,7 +45,7 @@
             android:label="Home Screen"
             android:theme="@style/AppTheme.NoAction" />
         <activity
-            android:name=".MaPelActivity"
+            android:name=".MapelActivity"
             android:label="Mata Pelajaran"
             android:theme="@style/AppTheme" />
         <activity

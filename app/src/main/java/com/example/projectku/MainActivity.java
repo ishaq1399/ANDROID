@@ -1,18 +1,11 @@
 package com.example.projectku;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
                                      @Override
                                      public void onClick(View v) {
-                                         Intent intent = new Intent(MainActivity.this, MaPelActivity.class);
+                                         Intent intent = new Intent(MainActivity.this, MapelActivity.class);
                                          startActivity(intent);
                                      }
                                  }

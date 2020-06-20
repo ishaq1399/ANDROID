@@ -1,14 +1,24 @@
 package com.example.projectku.materi;
 
 public class MateriModel {
+    private String id_materi;
     private String namamateri;
     private String namapengajar;
     private String imageUrl;
 
-    public MateriModel(String namamateri, String namapengajar, String imageUrl) {
+    public MateriModel(String id, String namamateri, String namapengajar, String imageUrl) {
+        this.id_materi = id;
         this.namamateri = namamateri;
         this.namapengajar = namapengajar;
         this.imageUrl = imageUrl;
+    }
+
+    public String getIdMateri() {
+        return id_materi;
+    }
+
+    public void setIdMateri(String id_materi) {
+        this.id_materi = id_materi;
     }
 
     public String getNamamateri() {
@@ -34,6 +44,4 @@ public class MateriModel {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
-
 }

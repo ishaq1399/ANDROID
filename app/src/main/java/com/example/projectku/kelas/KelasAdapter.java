@@ -59,7 +59,6 @@ public class KelasAdapter extends RecyclerView.Adapter<KelasAdapter.KelasViewHol
     }
 
     public class KelasViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageMateri;
         public TextView txtnomor, txtnamaSiswa;
 
         public KelasViewHolder(@NonNull View itemView) {
